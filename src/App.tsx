@@ -11,7 +11,6 @@ function App() {
     setWordIndex(+localStorage.getItem("wordIndex")! || 0);
   }, []);
   const speaker = new Speaker();
-  const play =  () => speaker.play(words[wordIndex].front);
   const handleWordIndex = (isInc: boolean) => {
     if (isInc)
       setWordIndex((wordIndex+1) % words.length);
@@ -22,7 +21,7 @@ function App() {
   }
   return (
     <div className="App">
-      <Card front={words[wordIndex].front} back={words[wordIndex].back}/>
+      <Card front={words[wordIndex].front} back={words[wordIndex].back} speaker={speaker}/>
       <div style={{
         display: "flex",
         justifyContent: "center"
@@ -30,10 +29,7 @@ function App() {
         <button className='new-word-btn' onClick={handleWordIndex.bind(null, false)}>
           Previous Word
         </button>
-        <button className="new-word-btn" onClick={handleWordIndex.bind(null, false)}>New Word</button>
-        <button onClick={play}>
-          Play
-        </button>
+        <button className="new-word-btn" onClick={handleWordIndex.bind(null, true)}>New Word</button>
       </div>
     </div>
   );
