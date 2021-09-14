@@ -1,0 +1,37 @@
+$menu-width: 200px;
+$menu-openning-duration: 0.5s;
+$menu-animation-curve: ease;
+
+.burger-menu {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  height: 100vh;
+  background-color: #eee;
+  width: $menu-width;
+  left: -$menu-width;
+  transition: $menu-openning-duration $menu-animation-curve;
+  .hamburger-icon {
+    position: fixed;
+    left: 0;
+  }
+  ul {
+    margin-top: 3em;
+    list-style: none;
+  }
+  li {
+    padding: 0.5em 0;
+    font-size: 20px;
+  }
+  a {
+    text-decoration: none;
+    color: black;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.open-menu {
+  left: 0;
+}

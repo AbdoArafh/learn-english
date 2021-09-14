@@ -1,0 +1,42 @@
+$card-span: 10fr;
+$card-maxheight: 500px;
+
+.all-words {
+  margin: 1em;
+  display: grid;
+  grid-template-rows: 5fr 1fr 1fr;
+  grid-template-columns: 1fr ($card-span/2) ($card-span/2) 1fr;
+  grid-template-areas:
+    ". card card ."
+    ". right-button left-button ."
+    "progressbar progressbar progressbar progressbar";
+  grid-row-gap: 1em;
+  grid-column-gap: 2em;
+  height: 90vmin;
+}
+
+.card {
+  grid-area: card;
+}
+.button-left {
+  grid-area: left-button;
+}
+
+.button-right {
+  grid-area: right-button;
+}
+
+.progress {
+  grid-area: progressbar;
+}
+
+@media (max-width: 300px) {
+  .all-words {
+    grid-template-areas:
+      "card card"
+      "button-left button-right"
+      "progressbar progressbar";
+    grid-template-columns: repeat(2, minmax(100px, 1fr));
+    grid-gap: 1em;
+  }
+}
